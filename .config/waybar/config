@@ -1,0 +1,195 @@
+{
+  // General config
+  "layer": "top",
+  "position": "top",
+  "mod": "dock",
+  "exclusive": true,
+  "passthrough": false,
+  "gtk-layer-shell": true,
+  "height": 0,
+
+  // Module order
+  "modules-left": [
+    "custom/launcher",
+   // "custom/keyboard",
+    //"custom/updates",
+    "custom/weather",
+    "sway/workspaces",
+  ],
+  "modules-center": [ "sway/window" ],
+  "modules-right": [
+    "network",
+    "tray",
+    "cpu",
+    "temperature",
+    "memory",
+    //"pulseaudio",
+    //"pulseaudio#microphone",
+    //"backlight",
+    "battery",
+    "clock",
+    "custom/powermenu",
+  ],
+
+  // Module config
+  "custom/launcher": {
+    "on-click": "nwggrid -o 0.75 -layer-shell-exclusive-zone 1",
+    "format": "󱗼",
+    "tooltip": true,
+    "tooltip-format": "App Launcher",
+    "min-length": 2
+  },
+
+  //"custom/keyboard": {
+  //  "on-click": "killall wvkbd-mobintl || wvkbd-mobintl -L 320",
+  //  "format": "",
+  //  "tooltip": false,
+  //  "min-length": 2
+  //},
+
+  "custom/updates": {
+    "format": "{}",
+    "interval": 7200,                                                    // check every 2 hours
+    "exec": "~/.config/waybar/scripts/arch-update.sh",                  // of updates and tooltip details
+    "exec-if": "exit 0",                                               // always run; consider advanced run conditions
+    "on-click": "alacritty -e trizen -Syu ; killall waybar ; waybar &",    // update system
+    "signal": 8
+  },
+
+  "custom/weather" : {
+    "format" : "{}",
+    "interval" : 300,
+    "exec" : "~/.config/waybar/scripts/wttr.py",
+    "return-type" : "json",
+    "tooltip" : true,
+  },
+
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "on-click": "activate",
+    //"format": "{icon}",
+    "format-icons": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+      "6": [],
+      "7": [],
+      "8": [],
+      "9": [],
+      "10": []
+    },
+    "min-length": 2,
+  },
+
+  "sway/window": {
+    "format": "{}"
+  },
+
+  "cpu": {
+    "format": "󰻠 {icon}",
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+    "interval": 1,
+    "min-length": 2
+  },
+
+  "temperature": {
+    "critical-threshold": 80,
+    "format": "{icon} {temperatureC}C",
+    "format-icons": ["", "", "", "", ""],
+    "tooltip": true
+  },
+
+  "memory": {
+    "format": "󰍛 {used} GB",
+    "interval": 2,
+    "tooltip": false,
+    "min-length": 4
+  },
+
+  "network": {
+    "interface": "wlan0",
+    "interval": 2,
+    "format": "{bandwidthUpBytes} 󰁞 {bandwidthDownBytes} 󰁆 ",
+    "tooltip-format":  "{essid}\n{ipaddr}/{cidr}",
+  },
+  "tray": {
+    "icon-size": 14,
+    "spacing": 10,
+    "show-passive-items": true
+  },
+
+  "pulseaudio": {
+    "format": "{icon}",
+    "format-bluetooth": "{icon}",
+    "format-bluetooth-muted": " {icon}",
+    "format-muted": "婢",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
+    },
+    "on-click": "pavucontrol",
+    "on-click-right": "volumectl toggle-mute",
+    "on-scroll-up": "volumectl -u up",
+    "on-scroll-down": "volumectl -u down",
+    "tooltip": false,
+    "min-length": 1
+  },
+
+  "pulseaudio#microphone": {
+    "scroll-step": 1,
+    "format": "{format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": "",
+    "on-click": "pamixer --default-source -t",
+    "on-scroll-up": "pamixer --default-source -i 5",
+    "on-scroll-down": "pamixer --default-source -d 5"
+  },
+
+//  "backlight": {
+//    "device": "intel_backlight",
+//    "format": "{icon}",
+//    "format-icons": ["󱩎 ", "󱩒 ", "󰛨 "],
+//    "on-click": "~/.config/waybar/scripts/ctrl-brightness.sh up",
+//    "on-click-right": "~/.config/waybar/scripts/ctrl-brightness.sh down",
+//    "on-scroll-up": "lightctl up",
+//    "on-scroll-down": "lightctl down",
+//    "tooltip": false,
+//    "min-length": 5
+//  },
+
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 20,
+      "critical": 10
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{time} {icon}",
+    "format-icons": ["󰂎","󰁺", "󰁻", "󰁽", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "min-length": 5
+  },
+
+  "clock": {
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    //"format": "{: %R   %d/%m}",
+    "format": "{:%b %d, %I:%M %p}",
+    "on-click": "gsimplecal"
+  },
+
+  "custom/powermenu": {
+    "on-click": "nwgbar -o 0.75 -layer-shell-exclusive-zone 1",
+    "format": "⏻",
+    "tooltip": false,
+    "min-length": 2
+  },
+}
