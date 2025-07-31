@@ -72,7 +72,7 @@ corner_radius 10
 # --------------------
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg $HOME/Downloads/alcohol-flowers.jpg fill
+output * bg $HOME/wallpapers/alcohol-flowers.jpg fill
 
 # --------------------
 # MONITORS

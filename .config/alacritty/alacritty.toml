@@ -7,3 +7,6 @@ decorations = "Full"
 import = [
     "~/.config/alacritty/themes/themes/gruvbox_material_hard_dark.toml"
 ]
+
+[font]
+size=13
