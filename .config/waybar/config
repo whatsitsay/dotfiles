@@ -187,7 +187,7 @@
   },
 
   "custom/powermenu": {
-    "on-click": "nwgbar -o 0.75 -layer-shell-exclusive-zone 1",
+    "on-click": "wlogout --protocol layer-shell -b 5",
     "format": "⏻",
     "tooltip": false,
     "min-length": 2
