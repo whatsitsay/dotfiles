@@ -25,8 +25,9 @@
     "memory",
     //"pulseaudio",
     //"pulseaudio#microphone",
-    //"backlight",
+    "backlight",
     "battery",
+    "idle_inhibitor",
     "clock",
     "custom/powermenu",
   ],
@@ -37,7 +38,7 @@
     "format": "󱗼",
     "tooltip": true,
     "tooltip-format": "App Launcher",
-    "min-length": 2
+    "min-length": 3
   },
 
   //"custom/keyboard": {
@@ -153,17 +154,17 @@
     "on-scroll-down": "pamixer --default-source -d 5"
   },
 
-//  "backlight": {
-//    "device": "intel_backlight",
-//    "format": "{icon}",
-//    "format-icons": ["󱩎 ", "󱩒 ", "󰛨 "],
-//    "on-click": "~/.config/waybar/scripts/ctrl-brightness.sh up",
-//    "on-click-right": "~/.config/waybar/scripts/ctrl-brightness.sh down",
-//    "on-scroll-up": "lightctl up",
-//    "on-scroll-down": "lightctl down",
-//    "tooltip": false,
-//    "min-length": 5
-//  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon}",
+    "format-icons": ["󱩎", "󱩒", "󰛨"],
+   // "on-click": "~/.config/waybar/scripts/ctrl-brightness.sh up",
+   // "on-click-right": "~/.config/waybar/scripts/ctrl-brightness.sh down",
+   // "on-scroll-up": "lightctl up",
+   // "on-scroll-down": "lightctl down",
+    "tooltip": false,
+    "min-length": 3
+  },
 
   "battery": {
     "states": {
@@ -176,7 +177,7 @@
     "format-plugged": " {capacity}%",
     "format-alt": "{time} {icon}",
     "format-icons": ["󰂎","󰁺", "󰁻", "󰁽", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-    "min-length": 5
+    "min-length": 3
   },
 
   "clock": {
@@ -184,6 +185,19 @@
     //"format": "{: %R   %d/%m}",
     "format": "{:%b %d, %I:%M %p}",
     "on-click": "gsimplecal"
+  },
+
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+        "activated": "󰅶",
+        "deactivated": "󰛊"
+    },
+    "timeout": 60,
+    "tooltip": true,
+    "tooltip-format-activated": "Caffeine Active",
+    "tooltip-format-deactivated": "Caffeine Inactive",
+    "min-length": 3
   },
 
   "custom/powermenu": {

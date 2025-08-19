@@ -66,6 +66,7 @@ tooltip {
 #backlight,
 #battery,
 #clock,
+#idle_inhibitor,
 #custom-powermenu {
   box-shadow: rgba(0, 0, 0, 0.288) 2px 1px 2px 0px;
   text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.377);
@@ -201,13 +202,13 @@ tooltip {
 }
 
 #backlight {
-  border-radius: 10px;
+  border-radius: 10px 0px 0px 10px;
   border-left: 0px;
   border-right: 0px;
 }
 
 #battery {
-  border-radius: 10px;
+  border-radius: 0px 10px 10px 0px;
   border-left: 0px;
   border-right: 0px;
   margin-right: 4px;
@@ -242,6 +243,20 @@ tooltip {
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   animation-direction: alternate;
+}
+
+#idle_inhibitor {
+  border-radius: 10px;
+  border-left: 0px;
+  border-right: 0px;
+  margin-right: 4px;
+}
+
+#idle_inhibitor.activated {
+  background: rgb(18,200,71);
+  background: linear-gradient(45deg, rgba(18, 200, 71,1) 0%, rgba(245,194,231,0.8) 64%, rgba(202,158,230,0.8) 100%);
+  background-size: 300% 300%;
+  color: rgba(21, 18, 27, .6);
 }
 
 #clock {
