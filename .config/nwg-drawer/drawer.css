@@ -1,0 +1,57 @@
+@import url("machiatto.css");
+
+* {
+  font-family: "DejaVu Sans";
+  font-size: 10pt;
+}
+
+window {
+  background-color: shade(@base, 0.9);
+  color: @text;
+}
+
+/* search entry */
+entry {
+  box-shadow: 0 0 6px 5px #2e3440;
+  background-color: @surface0;
+}
+
+button,
+image {
+  background: none;
+  border: none;
+  box-shadow: none;
+  text-shadow: none;
+  margin: 4px;
+  color: @flamingo;
+}
+
+button:hover {
+  background-color: @surface1;
+}
+
+button:focus {
+  background-color: @surface1;
+}
+
+/* in case you wanted to give category buttons a different look */
+#category-button {
+  margin: 0 10px 0 10px;
+  color: @flamingo;
+  font-weight: bold;
+}
+
+#category-button:hover {
+  background-color: @surface0;
+}
+
+#pinned-box {
+  padding-bottom: 5px;
+  border-bottom: 1px dotted gray;
+}
+
+#files-box {
+  padding: 5px;
+  border: 1px dotted gray;
+  border-radius: 15px;
+}

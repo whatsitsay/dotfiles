@@ -23,8 +23,8 @@
     "cpu",
     "temperature",
     "memory",
-    //"pulseaudio",
-    //"pulseaudio#microphone",
+    "pulseaudio",
+    "pulseaudio#microphone",
     "backlight",
     "battery",
     "idle_inhibitor",
@@ -34,7 +34,7 @@
 
   // Module config
   "custom/launcher": {
-    "on-click": "nwggrid -o 0.75 -layer-shell-exclusive-zone 1",
+    "on-click": "nwg-drawer -wm hyprland -ovl",
     "format": "󱗼",
     "tooltip": true,
     "tooltip-format": "App Launcher",
@@ -123,13 +123,13 @@
   },
 
   "pulseaudio": {
-    "format": "{icon}",
-    "format-bluetooth": "{icon}",
-    "format-bluetooth-muted": " {icon}",
-    "format-muted": "婢",
+    "format": "{icon} ",
+    "format-bluetooth": "{icon} ",
+    "format-bluetooth-muted": "󰝟 {icon} ",
+    "format-muted": "󰝟 ",
     "format-icons": {
       "headphone": "",
-      "hands-free": "",
+      "hands-free": "󰋎",
       "headset": "",
       "phone": "",
       "portable": "",
@@ -141,14 +141,14 @@
     "on-scroll-up": "volumectl -u up",
     "on-scroll-down": "volumectl -u down",
     "tooltip": false,
-    "min-length": 1
+    "min-length": 2
   },
 
   "pulseaudio#microphone": {
     "scroll-step": 1,
     "format": "{format_source}",
     "format-source": " {volume}%",
-    "format-source-muted": "",
+    "format-source-muted": " ",
     "on-click": "pamixer --default-source -t",
     "on-scroll-up": "pamixer --default-source -i 5",
     "on-scroll-down": "pamixer --default-source -d 5"

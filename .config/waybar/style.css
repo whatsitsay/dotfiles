@@ -176,10 +176,9 @@ tooltip {
 }
 
 #pulseaudio {
-  border-radius: 0px 10px 10px 0px;
+  border-radius: 10px 0px 0px 10px;
   border-left: 0px;
   border-right: 0px;
-  margin-right: 4px;
 }
 
 #pulseaudio.muted {
@@ -189,10 +188,9 @@ tooltip {
 }
 
 #pulseaudio.microphone {
-  border-radius: 0px 10px 10px 0px;
+  border-radius: 0px 0px 0px 0px;
   border-left: 0px;
   border-right: 0px;
-  margin-right: 4px;
 }
 
 #pulseaudio.microphone.muted {
@@ -202,7 +200,7 @@ tooltip {
 }
 
 #backlight {
-  border-radius: 10px 0px 0px 10px;
+  border-radius: 0px 0px 0px 0px;
   border-left: 0px;
   border-right: 0px;
 }

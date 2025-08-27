@@ -4,6 +4,7 @@ blur = true
 decorations = "Full"
 padding.x = 5
 padding.y = 5
+dynamic_title = true
 
 [general]
 import = [

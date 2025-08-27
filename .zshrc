@@ -1,8 +1,8 @@
 # If you come from bash you might have to change your $PATH.
 # History
 HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHISt=1000
+HISTSIZE=10000
+SAVEHISt=10000
 setopt appendhistory
 # Manual plugins
 # source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
