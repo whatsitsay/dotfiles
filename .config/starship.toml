@@ -14,15 +14,22 @@ vimcmd_symbol = "[$os $username ❮](subtext1)" # For use with zsh-vi-mode
 
 [username]
 show_always = true
-style_user = 'green bold'
-style_root = 'mauve bold'
-format = '[$user]($style) [in](rosewater) '
+style_user = 'peach bold'
+style_root = 'red bold'
+format = '[$user]($style)'
+
+[hostname]
+ssh_only = false
+ssh_symbol = "󰱠 "
+style = "bold maroon"
+format = '[@](green)[$ssh_symbol$hostname]($style)'
 
 [git_branch]
 style = "bold mauve"
 
 [directory]
 truncation_length = 4
+format = ' [in](flamingo) [$path]($style) '
 style = "bold lavender"
 
 [os]
