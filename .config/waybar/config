@@ -117,7 +117,7 @@
     "tooltip-format":  "{essid}\n{ipaddr}/{cidr}",
   },
   "tray": {
-    "icon-size": 14,
+    "icon-size": 16,
     "spacing": 10,
     "show-passive-items": true
   },
@@ -137,9 +137,9 @@
       "default": ["", "", ""]
     },
     "on-click": "pavucontrol",
-    "on-click-right": "volumectl toggle-mute",
-    "on-scroll-up": "volumectl -u up",
-    "on-scroll-down": "volumectl -u down",
+    "on-click-right": "swayosd-client --output-volume mute-toggle",
+    "on-scroll-up": "swayosd-client --output-volume +1 --device @DEFAULT_SINK@",
+    "on-scroll-down": "swayosd-client --output-volume -1 --device @DEFAULT_SINK@",
     "tooltip": false,
     "min-length": 2
   },
@@ -177,6 +177,7 @@
     "format-plugged": " {capacity}%",
     "format-alt": "{time} {icon}",
     "format-icons": ["󰂎","󰁺", "󰁻", "󰁽", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "interval": 10,
     "min-length": 3
   },
 
@@ -184,7 +185,7 @@
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     //"format": "{: %R   %d/%m}",
     "format": "{:%b %d, %I:%M %p}",
-    "on-click": "gsimplecal"
+    "on-click": "swaync-client -t -sw"
   },
 
   "idle_inhibitor": {
@@ -193,7 +194,7 @@
         "activated": "󰅶",
         "deactivated": "󰛊"
     },
-    "timeout": 60,
+    "timeout": 240,
     "tooltip": true,
     "tooltip-format-activated": "Caffeine Active",
     "tooltip-format-deactivated": "Caffeine Inactive",

@@ -20,9 +20,9 @@ format = '[$user]($style)'
 
 [hostname]
 ssh_only = false
-ssh_symbol = "󰱠 "
+ssh_symbol = " 󰱠 "
 style = "bold maroon"
-format = '[@](green)[$ssh_symbol$hostname]($style)'
+format = '[@](green)[$hostname$ssh_symbol]($style)'
 
 [git_branch]
 style = "bold mauve"
