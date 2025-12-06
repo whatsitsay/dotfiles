@@ -17,6 +17,8 @@ alias wake-am="wakeonlan -i 192.168.1.255 B4:2E:99:A4:0B:C3"
 alias restart-work-vpn="sudo systemctl restart openvpn-client@meyer-sound.service"
 alias stop-work-vpn="sudo systemctl stop openvpn-client@meyer-sound.service"
 alias work-vpn-status="systemctl status openvpn-client@meyer-sound.service"
+alias start-mullvad="sudo tailscale down && mullvad connect"
+alias stop-mullvad="mullvad disconnect && sudo tailscale up"
 
 # Created by `pipx` on 2025-08-25 00:05:40
 autoload -U compinit && compinit

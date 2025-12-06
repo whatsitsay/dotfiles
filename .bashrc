@@ -9,3 +9,4 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
 alias config='/usr/bin/git --git-dir=/home/gkaufman/.cfg/ --work-tree=/home/gkaufman'
+. "$HOME/.cargo/env"
