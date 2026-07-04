@@ -22,6 +22,10 @@ set $menu wofi --sort-order=alphabetical --show drun -I
 # Preferred terminal emulator
 set $term alacritty
 
+# Browser stuff
+set $waterfox flatpak run --branch=stable net.waterfox.waterfox
+
+
 # Preferred lock
 set $lock swaylock \
 	--screenshots \
@@ -38,7 +42,7 @@ set $lock swaylock \
 	--inside-color 00000088 \
 	--separator-color 00000000 \
 	--grace 0 \
-	--fade-in 0.5
+	--fade-in 0.2
 
 # --------------------
 # SWAYFX
@@ -51,10 +55,31 @@ corner_radius 8
 
 #default_dim_inactive 0.2
 
-shadows enable
-shadow_blur_radius 30
-shadow_offset 20 20
-shadows_on_csd enable
+shadows disable
+# shadows enable
+# shadow_blur_radius 10
+# shadow_offset 5 5
+# shadows_on_csd enable
+
+layer_effects "wofi" {
+    blur enable;
+    blur_ignore_transparent enable;
+}
+
+layer_effects "gtk-layer-shell" {
+    blur enable;
+    blur_ignore_transparent enable;
+}
+
+layer_effects "swaync" {
+    blur enable;
+    blur_ignore_transparent enable;
+}
+
+layer_effects "swaync-client" {
+    blur enable;
+    blur_ignore_transparent enable;
+}
 
 # --------------------
 # GAPS AND BORDERS
@@ -72,7 +97,7 @@ corner_radius 10
 # --------------------
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg $HOME/wallpapers/alcohol-flowers.jpg fill
+output * bg $HOME/wallpapers/lunar-reverie.jpg fill
 
 # --------------------
 # MONITORS
@@ -135,6 +160,11 @@ input "type:keyboard" {
     bindsym $mod+Shift+c reload
 
     bindsym $mod+Shift+z exec nwgdmenu -run
+
+    # Open browser
+    bindsym $mod+z exec zen-browser
+    bindsym $mod+w exec $waterfox
+    bindsym $mod+Shift+w exec $waterfox --private-window
 
 
     # Start rofi powermenu
@@ -205,7 +235,7 @@ input "type:keyboard" {
 
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
+    bindsym $mod+t layout tabbed
     bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
@@ -328,6 +358,7 @@ focus_on_window_activation focus
 
 exec_always autotiling
 exec_always nm-applet
+exec_always blueman-applet
 
 #exec /usr/lib/xfce-polkit/xfce-polkit
 
@@ -338,12 +369,11 @@ exec /usr/bin/pipewire
 exec /usr/bin/wireplumber
 exec pipewire-pulse
 
-
-
 #
 # Notifications:
 #
-exec mako -c $HOME/.config/mako/config
+# exec mako -c $HOME/.config/mako/config
+exec_always swaync
 
 #
 # Idle/Screen Timout:
@@ -411,7 +441,7 @@ bindsym XF86MonBrightnessDown exec swayosd-client --brightness -5
 # --------------------
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #40a02b #434c5e #eceff4 #8fbcbb   #41c7b9
+client.focused          #e64553 #434c5e #eceff4 #e64553   #e64553 
 client.focused_inactive #88c0d0 #2e3440 #d8dee9 #4c566a   #4c566a
 client.unfocused        #88c0d0 #2e3440 #d8dee9 #4c566a   #4c566a
 client.urgent           #ebcb8b #ebcb8b #2e3440 #8fbcbb   #ebcb8b
